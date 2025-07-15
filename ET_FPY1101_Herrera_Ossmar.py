@@ -33,14 +33,15 @@ def stock_marca(marca):
     for clave, datos in productos.items():
         if marca == datos[0]:
             stock_disponible = stock[clave][1]
-            print(f"Marca: {marca}\nModelo: {clave}\nStock disponible: {stock_disponible}")
+            print("---------------------")
+            print(f"Marca: {marca}\nModelo: {clave}\nStock disponible: {stock_disponible}\n---------------------\n")
             encontrados = True
     return encontrados
 
 def buscar_precio(p_min, p_max):
     encontrados = False
     resultados = []
-    print(f"Resultados para el rango {p_min} - {p_max}:")
+    print(f"\nResultados para el rango {p_min} - {p_max}:")
     for clave, datos in stock.items():
         if p_min <= datos[0] <= p_max and datos[1] > 0:
             marca = productos[clave][0]
@@ -49,7 +50,8 @@ def buscar_precio(p_min, p_max):
     for items in resultados:
         marca = items[0]
         modelo = items[1]
-        print(f"{marca}--{modelo}")
+        print("---------------------")
+        print(f"{marca}--{modelo}\n---------------------\n")
         encontrados = True
     return encontrados
 
@@ -62,6 +64,7 @@ def actualizar_precio(modelo, p):
         return False
 
 def main():
+    print("Bienvenido a Pybooks. Empresa líder en venta de notebooks.")
     while True:
         mostrar_menu()
         try:
@@ -99,6 +102,7 @@ def main():
         elif opcion == 4:
             print("Programa terminado.")
             break
+        else:
+            print("Ingrese una opción válida!")
                 
-
 main()
